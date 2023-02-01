@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Market Mapper</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+      .search-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(to bottom, #051937, #004d7a);
+      }
+      .search-bar {
+        width: 50%;
+        height: 50px;
+        padding: 10px;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      }
+      .search-btn {
+        width: 100px;
+        height: 50px;
+        background: #051937;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        margin-left: 10px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="search-container">
+      <input type="text" class="search-bar typeahead">
+      <button class="search-btn">Search</button>
+    </div>
+    <script>
+      $(document).ready(function() {
+        var stocks = [
+          "AAPL",
+          "GOOG",
+          "AMZN",
+          "MSFT",
+          "TSLA",
+          "FB",
+          "BRK.A",
+          "JNJ",
+          "V",
+          "MA"
+        ];
+        $(".typeahead").typeahead({ source: stocks });
+        $(".search-btn").click(function() {
+          var stock = $(".typeahead").val();
+          window.open("https://www.google.com/search?q=" + stock, "_blank");
+        });
+      });
+    </script>
+  </body>
+</html>
